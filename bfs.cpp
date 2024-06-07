@@ -3,6 +3,10 @@
 
 bfs::bfs(sf::RenderWindow* window) : target(window)
 {
+	font.loadFromFile("Assets/font.ttf");
+	text.setFont(font);
+	text.setCharacterSize(30);
+	text.setFillColor(sf::Color::Black);
 	std::cout << "BFS overloaded constructor " << std::endl;
 	padding = 0;
 	init();
@@ -20,6 +24,9 @@ void bfs::update()
 
 void bfs::render()
 {
+	text.setString(sf::String("CONTROLS: \nShift + Left Click = Start Node \nCTRL + Left click = End Node \nAlt + Left click = Restrict \nb = Calculate shortest path"));
+	this->child->clear(sf::Color::White);
+	this->child->draw(text);
 	this->child->display();
 	renderGrid();
 	mouseHandle();
@@ -28,6 +35,7 @@ void bfs::render()
 void bfs::init()
 {
 	this->child = new sf::RenderWindow(sf::VideoMode(500, 500),"Info",sf::Style::Titlebar);
+	this->child->setPosition(sf::Vector2i(0, 0));
 	rectangle.setSize(sf::Vector2f(50, 50));
 	rectangle.setFillColor(sf::Color::Blue);
 	makeGrid();

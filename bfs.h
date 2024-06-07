@@ -29,13 +29,14 @@ private:
 	std::vector<std::pair<int, int>> reconstructPath(std::pair<int, int> start, std::pair<int, int> goal, std::vector<std::vector<std::pair<int, int>>>& parent);
 	bool isValid(int row, int col, int rows, int cols, std::vector<std::vector<int>>& grid, std::vector<std::vector<bool>>& visited);
 	//
-	//sf::RenderWindow* bfsinfo;
 	sf::RenderWindow* child = nullptr;
 	sf::RenderWindow* target = nullptr;
 	std::vector<sf::RectangleShape> rectangles;
 	sf::RectangleShape rectangle;
 	std::vector<sf::RectangleShape*> start;
 	std::vector<sf::RectangleShape*> end;
+	sf::Font font;
+	sf::Text text;
 	int padding;
 	int m_gridX, m_gridY;
 	std::vector<std::vector<int>> grid;
